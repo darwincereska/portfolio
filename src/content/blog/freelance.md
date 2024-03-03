@@ -1,7 +1,7 @@
 ---
-title: Starting Development
-publishDate: 2023-09-21 00:00:00
-img: https://image-optimizer.darwincereska.repl.co/images/welcome.webp
+title: DCloud is Starting Development on 2.0
+publishDate: 2024-02-03 00:00:00
+img: https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500
 img_alt: Welcome Sign
 description: |
   Welcome to my first blog post
