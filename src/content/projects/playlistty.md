@@ -2,7 +2,7 @@
 title: 'Playlistty'
 description: 'A command-line tool for transferring playlists between music streaming services'
 pubDate: 'Feb 25 2025'
-heroImage: '/projects/playlistty.png'
+heroImage: '/blog-placeholder-3.jpg'
 source: 'https://github.com/darwincereska/playlistty'
 ---
 **Playlistty** is a project still in development, waiting for more music services to open back up their api.

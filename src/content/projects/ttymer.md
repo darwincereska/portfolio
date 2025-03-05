@@ -2,7 +2,7 @@
 title: 'ttymer'
 description: 'A simple command line timer for linux written in go '
 pubDate: 'Jan 22 2025'
-heroImage: '/projects/ttymer-cover.png'
+heroImage: '/blog-placeholder-2.jpg'
 source: 'https://github.com/darwincereska/ttymer'
 ---
 
