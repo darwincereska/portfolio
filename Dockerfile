@@ -6,4 +6,4 @@ COPY . .
 
 RUN go build -o server main.go
 
-CMD ["./server", "--host", "0.0.0.0"]
+CMD ./server --host 0.0.0.0
