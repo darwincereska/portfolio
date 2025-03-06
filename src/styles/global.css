@@ -1,20 +1,15 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
+	--accent: #2563eb;
+	--accent-dark: #1d4ed8;
+	--black: 17, 24, 39;
+	--gray: 107, 114, 128;
+	--gray-light: 243, 244, 246;
+	--gray-dark: 31, 41, 55;
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--transition: all 0.3s ease;
 }
 @font-face {
 	font-family: 'FunnelSans';
@@ -48,6 +43,7 @@ main {
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
+	animation: fadeIn 0.5s ease-in;
 }
 h1,
 h2,
@@ -58,6 +54,7 @@ h6 {
 	margin: 0 0 0.5rem 0;
 	color: rgb(var(--black));
 	line-height: 1.2;
+	transition: var(--transition);
 }
 h1 {
 	font-size: 3.052em;
@@ -80,9 +77,26 @@ b {
 }
 a {
 	color: var(--accent);
+	transition: var(--transition);
+	position: relative;
+	text-decoration: none;
 }
 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
+}
+a::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: -2px;
+	left: 0;
+	background-color: var(--accent);
+	transform: scaleX(0);
+	transition: var(--transition);
+}
+a:hover::after {
+	transform: scaleX(1);
 }
 p {
 	margin-bottom: 1em;
@@ -93,9 +107,25 @@ p {
 textarea {
 	width: 100%;
 	font-size: 16px;
+	padding: 0.5em;
+	border: 2px solid rgb(var(--gray-light));
+	border-radius: 4px;
+	transition: var(--transition);
+}
+textarea:focus {
+	outline: none;
+	border-color: var(--accent);
 }
 input {
 	font-size: 16px;
+	padding: 0.5em;
+	border: 2px solid rgb(var(--gray-light));
+	border-radius: 4px;
+	transition: var(--transition);
+}
+input:focus {
+	outline: none;
+	border-color: var(--accent);
 }
 table {
 	width: 100%;
@@ -104,15 +134,22 @@ img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 8px;
+	transition: var(--transition);
+}
+img:hover {
+	transform: scale(1.02);
 }
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+	border-radius: 4px;
+	transition: var(--transition);
 }
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
+	background: rgb(var(--black));
+	color: rgb(var(--gray-light));
 }
 pre > code {
 	all: unset;
@@ -122,10 +159,13 @@ blockquote {
 	padding: 0 0 0 20px;
 	margin: 0px;
 	font-size: 1.333em;
+	background: rgba(var(--gray-light), 0.5);
+	border-radius: 0 8px 8px 0;
 }
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 2px solid rgb(var(--gray-light));
+	margin: 2em 0;
 }
 @media (max-width: 720px) {
 	body {
@@ -144,12 +184,145 @@ hr {
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
 	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
 	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.waving-hand {
+ animation: wave 2.5s infinite;
+ transform-origin: 70% 70%;
+ display: inline-block;
+}
+
+@keyframes wave {
+ 0% { transform: rotate(0deg); }
+ 10% { transform: rotate(14deg); }
+ 20% { transform: rotate(-8deg); }
+ 30% { transform: rotate(14deg); }
+ 40% { transform: rotate(-4deg); }
+ 50% { transform: rotate(10deg); }
+ 60% { transform: rotate(0deg); }
+ 100% { transform: rotate(0deg); }
+}
+
+html.dark {
+ --accent: #60a5fa;
+ --accent-dark: #3b82f6;
+ --black: 255, 255, 255;
+ --gray: 209, 213, 219;
+ --gray-light: 31, 41, 55;
+ --gray-dark: 243, 244, 246;
+ --gray-gradient: rgba(17, 24, 39, 50%), #111827;
+ background: linear-gradient(45deg, #111827, #1f2937, #374151);
+ background-size: 400% 400%;
+ position: relative;
+ min-height: 100vh;
+ overflow-x: hidden;
+}
+
+html.dark::before,
+html.dark::after {
+ content: '';
+ position: fixed;
+ width: 60vmax;
+ height: 53vmax;
+ background: rgba(255, 255, 255, 0.07);
+ left: -20vmin;
+ top: -20vmin;
+ animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+ z-index: -1;
+ will-change: border-radius, transform;
+ pointer-events: none;
+ filter: blur(5px);
+}
+
+html.dark::after {
+ width: 70vmin;
+ height: 70vmin;
+ left: auto;
+ right: -13vmin;
+ top: auto;
+ bottom: 10;
+ animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
+ transform-origin: 20% 20%;
+ /* filter: blur(100px); */
+}
+
+@keyframes morph {
+ 0% {
+   border-radius: 100% 60% 60% 40% / 70% 30% 70% 30%;
+ }
+ 100% {
+   border-radius: 40% 60%;
+ }
+}
+
+@keyframes spin {
+ to {
+   transform: rotate(1turn);
+ }
+}
+
+@keyframes gradient {
+ 0% {
+   background-position: 0% 50%;
+ }
+ 50% {
+   background-position: 100% 50%;
+ }
+ 100% {
+   background-position: 0% 50%;
+ }
+}
+
+.dark body {
+ background: linear-gradient(var(--gray-gradient)) no-repeat;
+ color: rgb(var(--gray-dark));
+ transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dark a {
+ color: var(--accent);
+ transition: color 0.3s ease;
+}
+
+.dark a:hover {
+ color: var(--accent-dark);
+}
+
+.dark code {
+ background-color: rgb(var(--gray-light));
+ transition: background-color 0.3s ease;
+}
+
+.dark pre {
+ background: rgb(17, 24, 39);
+ color: rgb(var(--gray-dark));
+ transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dark blockquote {
+ background: rgba(var(--gray-light), 0.2);
+ transition: background 0.3s ease;
+}
+
+.dark input, 
+.dark textarea {
+ background-color: rgb(17, 24, 39);
+ border-color: rgb(var(--gray));
+ color: rgb(var(--gray-dark));
+ transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }

@@ -1,6 +1,7 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+// import ThemeIcon from './ThemeButton.astro';
 ---
 
 <header>
@@ -12,6 +13,7 @@ import { SITE_TITLE } from '../consts';
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
+		<!-- <ThemeIcon /> -->
 		<div class="social-links">
     		<a href="https://github.com/darwincereska" target="_blank">
     			<span class="sr-only">Go to Astro's GitHub repo</span>
@@ -40,6 +42,9 @@ import { SITE_TITLE } from '../consts';
 		padding: 0 1em;
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+	}
+	:global(.dark) header {
+	   background: rgb(17, 24, 39,0.5);
 	}
 	h2 {
 		margin: 0;
