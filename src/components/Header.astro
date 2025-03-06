@@ -6,7 +6,8 @@ import { SITE_TITLE } from '../consts';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<!-- <h2><a href="/">{SITE_TITLE}</a></h2> -->
+		<h2><a href="/" class="logo" style="text-decoration: none; pointer-events: none;"><img style="display: inline-block; vertical-align: middle; position: relative; top: -2px;" src="/Logo.svg" alt={SITE_TITLE} width="30" height="auto" /></a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/projects">Projects</HeaderLink>
@@ -44,7 +45,7 @@ import { SITE_TITLE } from '../consts';
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
 	:global(.dark) header {
-	   background: rgb(17, 24, 39,0.5);
+				background: rgb(17, 24, 39,0.5);
 	}
 	h2 {
 		margin: 0;
@@ -55,10 +56,18 @@ import { SITE_TITLE } from '../consts';
 	h2 a.active {
 		text-decoration: none;
 	}
+	.no_decoration {
+				text-decoration: none;
+	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+	.internal-links {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 	nav a {
 		padding: 1em 0.5em;
@@ -78,5 +87,13 @@ import { SITE_TITLE } from '../consts';
 		.social-links {
 			display: none;
 		}
+		.internal-links {
+			position: static;
+			transform: none;
+		}
 	}
+	:global(.dark) .logo img {
+		filter: invert(1);
+	}
+
 </style>
