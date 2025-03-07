@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import ThemeButton from '../components/ThemeButton.astro';
+Astro.response.headers.set('Cache-Control', 'public, max-age=604800'); Astro.response.headers.set('CDN-Cache-Control', 'public, max-age=604800'); 
 ---
 
 <!doctype html>

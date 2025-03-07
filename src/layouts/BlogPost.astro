@@ -7,7 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import ThemeButton from '../components/ThemeButton.astro';
 type Props = CollectionEntry<'blog'>['data'];
 import { Image } from 'astro:assets';
-
+Astro.response.headers.set('Cache-Control', 'public, max-age=604800'); Astro.response.headers.set('CDN-Cache-Control', 'public, max-age=604800'); 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
