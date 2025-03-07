@@ -96,7 +96,8 @@ Astro.response.headers.set('Cache-Control', 'public, max-age=604800'); Astro.res
 						projects.map((project, index) => (
 							<li>
 								<a href={`/projects/${project.id}/`}>
-									<Image width={720} height={360} src={project.data.heroImage || ''} format="webp" alt="" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+									<!-- <Image width={720} height={360} src={project.data.heroImage || ''} quality={80} format="webp" alt="" loading={index === 0 ? "eager" : "lazy"} decoding="async" /> -->
+									<Image width={720} height={360}  src={project.data.heroImage || ''} quality={80} format="webp" alt="" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
 									<h4 class="title">{project.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={project.data.pubDate} />

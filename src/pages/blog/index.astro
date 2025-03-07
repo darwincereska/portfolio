@@ -96,7 +96,7 @@ Astro.response.headers.set('Cache-Control', 'public, max-age=604800'); Astro.res
 						posts.map((post, index) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
-								<Image width={720} height={360} src={post.data.heroImage ?? ''} alt="" format="webp" loading={index === 0 ? "eager" : "lazy"} />
+								<Image width={720} height={360} src={post.data.heroImage ?? ''} alt="" quality={80} format="webp" loading={index === 0 ? "eager" : "lazy"} />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
