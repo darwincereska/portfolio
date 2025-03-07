@@ -7,9 +7,20 @@ const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
+const handleClick = (e: MouseEvent) => {
+  const elem = e.currentTarget as HTMLAnchorElement;
+  const links = document.querySelectorAll('a');
+  links.forEach(l => l.classList.remove('active'));
+  elem.classList.add('active');
+};
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a
+  href={href}
+  class:list={[className, { active: isActive }]}
+  onclick="document.querySelectorAll('a').forEach(l=>l.classList.remove('active'));this.classList.add('active')"
+  {...props}
+>
 	<slot />
 </a>
 <style>
