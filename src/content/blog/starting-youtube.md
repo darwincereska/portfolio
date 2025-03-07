@@ -2,7 +2,7 @@
 title: "Starting a YouTube Channel"
 description: "I'm creating a YouTube Channel to further my audience"
 pubDate: 'Mar 6 2025'
-heroImage: '/blog-placeholder-2.jpg'
+heroImage: '/blog/starting-youtube.png'
 ---
 ### I’m starting a YouTube Channel!
 
