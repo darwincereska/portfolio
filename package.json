@@ -12,6 +12,10 @@
     "@astrojs/mdx": "^4.1.0",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.4.2"
+    "@playform/compress": "^0.1.7",
+    "@swup/astro": "^1.5.0",
+    "astro": "^5.4.2",
+    "astro-purgecss": "^5.2.2",
+    "purgecss": "^7.0.2"
   }
 }
